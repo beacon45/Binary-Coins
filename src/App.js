@@ -1,15 +1,25 @@
 import './App.css';
-import Home from './pages/Home';
-import Trending from './pages/Trending';
-import Favourite from './pages/Favourite';
+import logo from './logo.svg';
 
 function App() {
   return (
     <>
-      hello friend
-      <Home/>
-      <Trending/>
-      <Favourite/>
+          <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p className='text-red-700'>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
     </>
   );
 }
