@@ -1,13 +1,63 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
+import Home from './pages/Home';
+import Crypto from './pages/Crypto';
+import Trending from './pages/Trending';
+import Favourite from './pages/Favourite';
+import CryptoDetails from './components/CryptoDetails';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home/>,
+    children:[
+      {
+        path:"/",
+        element: <Crypto/>,
+        children: [
+          {
+            path:":coinId",
+            element: <CryptoDetails />
+          }
+        ]
+      },
+      {
+        path:"/trending",
+        element: <Trending/>,
+        children: [
+          {
+            path:":coinId",
+            element: <CryptoDetails />
+          }
+        ]
+      },
+      {
+        path:"/favourites",
+        element: <Favourite />,
+        children: [
+          {
+            path:":coinId",
+            element: <CryptoDetails/>
+          }
+        ]
+      }
+    ]
+
+
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
