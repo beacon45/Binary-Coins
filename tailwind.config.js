@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily:{
+      abc:["Josefin Sans","sans-serif"],
+  }
   },
   plugins: [],
 }
