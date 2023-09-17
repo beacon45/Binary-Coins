@@ -9,7 +9,7 @@ const Logo = () => {
             className="absolute top-[1.5rem] left-[1.5rem] [text-decoration:none]
             text-lg text-cyan flex items-center"
         >
-            <img src={mainlog} alt="CryptoBucks" className=' w-[100px] mx-3' />
+            <img src={mainlog} alt="CryptoBucks" className=' w-[70px] mx-3 sm:w-[100px]' />
             <span className=' font-extrabold text-4xl text-blue-500'>
             <span className=' text-3xl font-semibold text-white'> B<span className=' text-[#d18543]'>ⓘ</span>nary </span>
              Co<span className=' text-[#d8cd4a]'>in</span>s</span>
