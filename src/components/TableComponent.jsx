@@ -1,38 +1,51 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { CryptoContext } from '../data/CryptoContext';
 
 const TableComponent = () => {
+    let { cryptoData } = useContext(CryptoContext);
+
+
     return (
-        <div className="flex flex-col mt-9 border border-gray-100 rounded">
-            <table className="w-full table-auto">
-                <thead className=" capitalize text-base text-[#858072]
-            font-medium border-b border-white">
-                    <tr>
-                        <th className="py-1">asset</th>
-                        <th className="py-1 sm:table-cell hidden">name</th>
-                        <th className="py-1">price</th>
-                        <th className="py-1 sm:table-cell hidden">total volume</th>
-                        <th className="py-1 sm:table-cell hidden">market cap change</th>
-                        <th className="py-1 sm:table-cell hidden">1H</th>
-                        <th className="py-1 sm:table-cell hidden">24H</th>
-                        <th className="py-1 sm:table-cell hidden">7D</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr  className="text-center text-white font-semibold border-b border-gray-100 
-            hover:bg-[#77776c] last:border-b-0  ">
-                        <td className="py-4 ">asset</td>
-                        <td className="py-4  sm:table-cell hidden">name</td>
-                        <td className="py-4 ">price</td>
-                        <td className="py-4  sm:table-cell hidden">total volume</td>
-                        <td className="py-4  sm:table-cell hidden">market cap change</td>
-                        <td className="py-4  sm:table-cell hidden">1H</td>
-                        <td className="py-4  sm:table-cell hidden">24H</td>
-                        <td className="py-4  sm:table-cell hidden">7D</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    )
-}
+        <>
+            <div className="flex flex-col mt-9 border border-gray-100 rounded">
+                {cryptoData ? (
+                    <table className="w-full table-auto">
+                        <thead className="capitalize text-base text-[#858072] font-medium border-b border-white">
+                            <tr>
+                                <th className="py-1">Asset</th>
+                                <th className="py-1 sm:table-cell hidden">Name</th>
+                                <th className="py-1">Price</th>
+                                <th className="py-1 sm:table-cell hidden">Total Volume</th>
+                                <th className="py-1 sm:table-cell hidden">Market Cap Change</th>
+                                <th className="py-1 sm:table-cell hidden">1H Change</th>
+                                <th className="py-1 sm:table-cell hidden">24H Change</th>
+                                <th className="py-1 sm:table-cell hidden">7D Change</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {cryptoData.map((data) => {
+                                return (
+                                    <tr
+                                        key={data.id}
+                                        className="text-center text-base border-b border-gray-100 hover:bg-gray-200 last:border-b-0"
+                                    >
+                                        <td className='py-4'>asset</td>
+                                        <td className='py-4'>{data.name}</td>
+                                        <td className='py-4'>price</td>
+                                        <td className='py-4'>.totalVolume</td>
+                                        <td className='py-4'>marketCapChange</td>
+                                        <td className='py-4'>oneHourChange</td>
+                                        <td className='py-4'>twentyFourHourChange</td>
+                                        <td className='py-4'>sevenDayChange</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                ) : null}
+            </div>
+        </>
+    );
+};
 
 export default TableComponent
