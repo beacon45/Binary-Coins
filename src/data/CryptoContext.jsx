@@ -4,6 +4,7 @@ export const CryptoContext= createContext({});
 
 export const CryptoProvider=({children})=>{
     const [cryptoData, setCryptoData]=useState();
+    const [searchData, setSearchData] = useState();
     
     const getCryptoData= async ()=>{
         setCryptoData();
@@ -17,12 +18,28 @@ export const CryptoProvider=({children})=>{
             console.log(error)
         }
     }
+
+    //search data
+    const getSearchResult = async (query) => {
+        try {
+          const data = await fetch(
+            `https://api.coingecko.com/api/v3/search?query=${query}`
+          )
+            .then((res) => res.json())
+            .then((json) => json);
+    
+          console.log(data);
+          setSearchData(data.coins);
+        } catch (error) {
+          console.log(error);
+        }
+      };
     useLayoutEffect(()=>{
         getCryptoData();
     },[])
 
     return(
-        <CryptoContext.Provider value={{cryptoData}}>
+        <CryptoContext.Provider value={{cryptoData,searchData,getSearchResult}}>
             {children}
         </CryptoContext.Provider>
     )

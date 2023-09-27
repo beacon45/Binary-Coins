@@ -1,22 +1,30 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { AiOutlineSearch } from "react-icons/ai";
+import { CryptoContext } from '../data/CryptoContext';
+import debounce from 'lodash.debounce';
 
-const Search = () => {
+
+const SearchInp=({handleSearch})=>{
     const [searchText, setsearchText] = useState("");
+    let {searchData}=useContext(CryptoContext)
 
     let handleInput = (e) => {
         e.preventDefault();
         let inp = e.target.value;
-        console.log(inp)
+        setsearchText(inp)
+        handleSearch(inp)
+
     }
-    return (
+    return(
         <>
+            
             <form className="w-96 relative flex items-center
      font-abc mx-5
     ">
                 <input type="text"
                 onChange={handleInput} 
-                className="w-full rounded bg-[#69695a]
+                value={searchText}
+                className="w-96 rounded bg-[#69695a]
         placeholder:text-gray-100 pl-2
         required outline-0 border border-transparent 
         focus:border-[#dbdb8b]
@@ -26,6 +34,55 @@ const Search = () => {
                     <AiOutlineSearch />
                 </button>
             </form>
+            {
+                searchText.length >0 ?
+                <ul
+          className="absolute top-11 right-0 w-96 h-96 rounded
+overflow-x-hidden py-2 bg-gray-200 bg-opacity-60 
+backdrop-blur-md scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-200
+"
+        >
+            {
+                searchData ? 
+                searchData.map(coin=>{
+                    return (
+                    <li className="flex items-center ml-4 my-2 cursor-pointer"
+                        key={coin.id}>
+                        
+                        <img
+                    className="w-[1rem] h-[1rem] mx-1.5"
+                    src={coin.thumb}
+                    alt={coin.name}
+                  />
+                  <span>{coin.name}</span>
+                    </li>
+                    )})
+                :
+                <h2>Loading....</h2>
+            }
+        </ul>
+        :
+        null
+            }
+        </>
+    )
+}
+
+const Search = () => {
+    
+    let {getSearchResult} =useContext(CryptoContext)
+
+    //debounce 
+    const debounceSet=debounce(function(val){
+        getSearchResult(val);
+    },2000)
+    
+    
+    return (
+        <>
+        <div className=' relative'>
+            <SearchInp handleSearch={debounceSet}/>
+        </div>
         </>
     )
 }
