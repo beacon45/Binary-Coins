@@ -18,13 +18,13 @@ const SearchInp=({handleSearch})=>{
     return(
         <>
             
-            <form className="w-96 relative flex items-center
+            <form className=" w-[270px] lg:w-[400px] relative flex items-center
      font-abc mx-5
     ">
                 <input type="text"
                 onChange={handleInput} 
                 value={searchText}
-                className="w-96 rounded bg-[#69695a]
+                className="w-full rounded bg-[#69695a]
         placeholder:text-gray-100 pl-2
         required outline-0 border border-transparent 
         focus:border-[#dbdb8b]
@@ -37,7 +37,7 @@ const SearchInp=({handleSearch})=>{
             {
                 searchText.length >0 ?
                 <ul
-          className="absolute top-11 right-0 w-96 h-96 rounded
+          className="absolute top-11 right-0 w-full h-96 rounded
 overflow-x-hidden py-2 bg-gray-200 bg-opacity-60 
 backdrop-blur-md scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-200
 "

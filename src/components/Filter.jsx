@@ -5,7 +5,7 @@ const Filter = () => {
     return (
         <>
             <div className="w-full h-12 border-2 border-[#ccb94c] rounded-lg
-    flex items-center justify-between
+    flex items-center justify-between relative p-0
     ">
                 <Search />
                 
