@@ -6,7 +6,7 @@ import debounce from 'lodash.debounce';
 
 const SearchInp=({handleSearch})=>{
     const [searchText, setsearchText] = useState("");
-    let {searchData}=useContext(CryptoContext)
+    let {searchData, setCoinSearch, setSearchData}=useContext(CryptoContext)
 
     let handleInput = (e) => {
         e.preventDefault();
@@ -15,12 +15,25 @@ const SearchInp=({handleSearch})=>{
         handleSearch(inp)
 
     }
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        handleSearch(searchText)
+    }
+
+    const selectCoin=(coin)=>{
+        setCoinSearch(coin);
+        setsearchText("");
+        setSearchData();
+    }
     return(
         <>
             
             <form className=" w-[270px] lg:w-[400px] relative flex items-center
      font-abc mx-5
-    ">
+    "
+    onSubmit={handleSubmit}
+    >
                 <input type="text"
                 onChange={handleInput} 
                 value={searchText}
@@ -37,7 +50,7 @@ const SearchInp=({handleSearch})=>{
             {
                 searchText.length >0 ?
                 <ul
-          className="absolute top-11 right-0 w-full h-96 rounded
+          className="absolute top-11 right-0 w-full sm:w-[400px] h-96 rounded
 overflow-x-hidden py-2 bg-gray-200 bg-opacity-60 
 backdrop-blur-md scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-200
 "
@@ -47,7 +60,9 @@ backdrop-blur-md scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-20
                 searchData.map(coin=>{
                     return (
                     <li className="flex items-center ml-4 my-2 cursor-pointer"
-                        key={coin.id}>
+                        key={coin.id}
+                        onClick={()=>selectCoin(coin.id)}
+                        >
                         
                         <img
                     className="w-[1rem] h-[1rem] mx-1.5"

@@ -7,7 +7,7 @@ const TableComponent = () => {
 
     return (
         <>
-            <div className="flex flex-col mt-9 border-2 border-[#ccb94c] rounded">
+            <div className="flex flex-col flex-wrap mt-9 border-2 border-[#ccb94c] rounded">
                 {cryptoData ? (
                     <table className="w-full table-auto">
                         <thead className="capitalize text-base text-[#858072] font-medium border-2 border-b border-[#ccbb59]">
