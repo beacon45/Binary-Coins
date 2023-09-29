@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { CryptoContext } from '../data/CryptoContext';
 
 const TableComponent = () => {
-    let { cryptoData } = useContext(CryptoContext);
+    let { cryptoData, currency } = useContext(CryptoContext);
 
 
     return (
@@ -41,9 +41,10 @@ const TableComponent = () => {
                                             </span>
                                         </td>
                                         <td className='py-4'>{data.name}</td>
-                                        <td className='py-4 sm:text-[#4c4cdd] text-[#5ebe35] '> {new Intl.NumberFormat("en-IN", {
+                                        <td className='py-4 sm:text-[#4c4cdd] text-[#5ebe35] '> 
+                                        {new Intl.NumberFormat("en-IN", {
                                             style: "currency",
-                                            currency: "inr",
+                                            currency: currency,
                                         }).format(data.current_price)}</td>
                                         <td className='py-4 sm:table-cell hidden'>{data.total_volume}</td>
                                         <td className={
