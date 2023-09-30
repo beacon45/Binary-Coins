@@ -4,12 +4,12 @@ import { FaDribbble } from "react-icons/fa";
 import { CryptoContext } from '../data/CryptoContext';
 
 const Filter = () => {
-    const { setCurrency }= useContext(CryptoContext);
+    const { setCurrency } = useContext(CryptoContext);
     const currencyRef = useRef(null);
 
-    const handleSubmit=(e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault()
-        let curr=currencyRef.current.value;
+        let curr = currencyRef.current.value;
         setCurrency(curr)
         currencyRef.current.value = "";
     }
@@ -21,7 +21,7 @@ const Filter = () => {
                 <Search />
                 <div className='flex mr-4 mt-4 sm:mt-0'>
                     <form className="relative flex items-center font-abc mr-12 "
-                    onSubmit={handleSubmit}
+                        onSubmit={handleSubmit}
                     >
                         <label
                             htmlFor="currency"
@@ -39,13 +39,32 @@ const Filter = () => {
      pl-2 required outline-0 border border-transparent focus:border-[#ccb94c] leading-4"
                         />
                         <button type="submit" className="ml-1 cursor-pointer">
-                            <FaDribbble alt="submit" className=" text-[yellow] w-full h-auto" />
+                            <FaDribbble alt="submit" className=" text-[yellow] w-full h-auto hover:text-[#5addd7]" />
                         </button>
                     </form>
 
                 </div>
 
-                <div className='flex mr-5 mt-3 text-white sm:mt-0'>Sorting</div>
+                <div className='flex mr-5 mt-3 text-white sm:mt-0'>
+                    <label className="relative flex justify-center items-center">
+                        <span className="font-bold mr-2">Sort by: </span>
+                        <select
+                            name="sortby"
+                            className="rounded bg-[#878772] text-[#efefc9] 
+         pl-2 pr-10 py-0.5 leading-4 capitalize focus:outline-[#ccb94c]
+         "
+                        >
+                            <option value="market_cap_desc">market cap desc</option>
+                            <option value="market_cap_asc">market cap asc</option>
+                            <option value="volume_desc">volume desc</option>
+                            <option value="volume_asc">volume asc</option>
+                            <option value="id_desc">id desc</option>
+                            <option value="id_asc">id asc</option>
+                            <option value="gecko_desc">gecko desc</option>
+                            <option value="gecko_asc">gecko asc</option>
+                        </select>
+                    </label>
+                </div>
             </div>
         </>
     )
