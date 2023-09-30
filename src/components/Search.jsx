@@ -51,8 +51,8 @@ const SearchInp = ({ handleSearch }) => {
                 searchText.length > 0 ?
                     <ul
                         className="absolute top-11 right-0 w-full sm:w-[400px] h-96 rounded
-                                    overflow-x-hidden py-2 bg-gray-200 bg-opacity-60 
-                            backdrop-blur-md scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-200 z-10
+                                    overflow-x-hidden py-2 bg-[#adada1] bg-opacity-60 
+                            backdrop-blur-md scrollbar-thin scrollbar-thumb-[#fdd649] scrollbar-track-[#6c664d] z-10
                                 "
                     >
                         {

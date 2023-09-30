@@ -9,6 +9,6 @@ module.exports = {
       abc:["Josefin Sans","sans-serif"],
   }
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 }
 
