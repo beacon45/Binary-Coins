@@ -1,10 +1,11 @@
 import React, { useContext, useRef } from 'react'
 import Search from './Search'
 import { FaDribbble } from "react-icons/fa";
+import { AiOutlineDownCircle } from "react-icons/ai";
 import { CryptoContext } from '../data/CryptoContext';
 
 const Filter = () => {
-    const { setCurrency } = useContext(CryptoContext);
+    const { setCurrency, setSortBy } = useContext(CryptoContext);
     const currencyRef = useRef(null);
 
     const handleSubmit = (e) => {
@@ -13,6 +14,12 @@ const Filter = () => {
         setCurrency(curr)
         currencyRef.current.value = "";
     }
+
+    const handleSort = (e) => {
+        e.preventDefault();
+        let val = e.target.value;
+        setSortBy(val);
+    };
     return (
         <>
             <div className="w-full h-auto sm:h-12 border-2 border-[#ccb94c] rounded-lg
@@ -51,9 +58,10 @@ const Filter = () => {
                         <select
                             name="sortby"
                             className="rounded bg-[#878772] text-[#efefc9] 
-         pl-2 pr-10 py-0.5 leading-4 capitalize focus:outline-[#ccb94c]
+         pl-2 pr-10 py-1 leading-4 capitalize focus:outline-[#ccb94c]
          "
-                        >
+                       onClick={handleSort}
+                       >
                             <option value="market_cap_desc">market cap desc</option>
                             <option value="market_cap_asc">market cap asc</option>
                             <option value="volume_desc">volume desc</option>
@@ -63,6 +71,9 @@ const Filter = () => {
                             <option value="gecko_desc">gecko desc</option>
                             <option value="gecko_asc">gecko asc</option>
                         </select>
+                        <AiOutlineDownCircle className="w-[1rem] h-auto
+                        absolute right-1 top-1 pointer-events-none bg-[yellow] text-[#18180b]
+                        " />
                     </label>
                 </div>
             </div>
