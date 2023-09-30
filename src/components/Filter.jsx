@@ -57,7 +57,7 @@ const Filter = () => {
                         <span className="font-bold mr-2">Sort by: </span>
                         <select
                             name="sortby"
-                            className="rounded bg-[#878772] text-[#efefc9] 
+                            className="rounded bg-[#69695a] text-[#efefc9] 
          pl-2 pr-10 py-1 leading-4 capitalize focus:outline-[#ccb94c]
          "
                        onClick={handleSort}

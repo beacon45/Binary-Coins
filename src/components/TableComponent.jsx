@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { CryptoContext } from '../data/CryptoContext';
+import Pagination from './Pagination';
 
 const TableComponent = () => {
     let { cryptoData, currency } = useContext(CryptoContext);
@@ -78,6 +79,9 @@ const TableComponent = () => {
                         </tbody>
                     </table>
                 ) : null}
+            </div>
+            <div className="flex justify-center items-center mt-4 capitalize h-[2rem]">
+                <Pagination/>
             </div>
         </>
     );
