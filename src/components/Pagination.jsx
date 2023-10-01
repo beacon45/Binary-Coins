@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { BiSolidCaretLeftSquare, BiSolidCaretRightSquare } from "react-icons/bi";
 import { CryptoContext } from '../data/CryptoContext';
+import PerPage from './PerPage';
 
 const Pagination = () => {
     const {page, setPage}=useContext(CryptoContext);
@@ -44,7 +45,8 @@ const Pagination = () => {
     }
     return (
         <>
-            <div className="flex items-center">
+            <div className="flex flex-col items-center sm:flex-row sm:items-center">
+                <PerPage/>
                 <ul className="flex items-center justify-end text-base">
                     <li className="flex items-center">
                         <button className="outline-1 hover:bg-[#f96868] w-8" onClick={prev}>

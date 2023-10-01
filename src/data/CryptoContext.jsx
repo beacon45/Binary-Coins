@@ -9,12 +9,13 @@ export const CryptoProvider = ({ children }) => {
   const [currency, setCurrency] = useState("inr");
   const [sortBy, setSortBy] = useState("market_cap_desc");
   const [page, setPage] = useState(1);
+  const [perPage, setPerPage]=useState(10);
 
   const getCryptoData = async () => {
     setCryptoData();
     try {
       const data = await fetch(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coinSearch}&order=${sortBy}&per_page=10&page=${page}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coinSearch}&order=${sortBy}&per_page=${perPage}&page=${page}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
       ).then(res => res.json()).then(json => json);
       console.log(data)
       setCryptoData(data)
@@ -47,7 +48,7 @@ export const CryptoProvider = ({ children }) => {
 
   useLayoutEffect(() => {
     getCryptoData();
-  }, [coinSearch, currency, sortBy, page]);
+  }, [coinSearch, currency, sortBy, page, perPage]);
 
   return (
     <CryptoContext.Provider value={{
@@ -59,7 +60,8 @@ export const CryptoProvider = ({ children }) => {
       currency, setCurrency,
       sortBy, setSortBy,
       page, setPage,
-      refreshFunction
+      refreshFunction,
+      setPerPage
     }}>
       {children}
     </CryptoContext.Provider>
