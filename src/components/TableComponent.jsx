@@ -16,11 +16,11 @@ const TableComponent = () => {
                                 <th className="py-1">Asset</th>
                                 <th className="py-1">Name</th>
                                 <th className="py-1">Price</th>
-                                <th className="py-1 sm:table-cell hidden">Total Volume</th>
-                                <th className="py-1 sm:table-cell hidden">Market Cap Change</th>
-                                <th className="py-1 sm:table-cell hidden">1H Change</th>
-                                <th className="py-1 sm:table-cell hidden">24H Change</th>
-                                <th className="py-1 sm:table-cell hidden">7D Change</th>
+                                <th className="py-1 md:table-cell hidden">Total Volume</th>
+                                <th className="py-1 lg:table-cell hidden">Market Cap Change</th>
+                                <th className="py-1 lg:table-cell hidden">1H Change</th>
+                                <th className="py-1 lg:table-cell hidden">24H Change</th>
+                                <th className="py-1 lg:table-cell hidden">7D Change</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,29 +47,29 @@ const TableComponent = () => {
                                             style: "currency",
                                             currency: currency,
                                         }).format(data.current_price)}</td>
-                                        <td className='py-4 sm:table-cell hidden'>{data.total_volume}</td>
+                                        <td className='py-4 md:table-cell hidden'>{data.total_volume}</td>
                                         <td className={
                                             data.market_cap_change_percentage_24h > 0
-                                                ? " text-[#5ebe35] py-4 sm:table-cell hidden "
-                                                : " text-[#da4141] py-4  sm:table-cell hidden"
+                                                ? " text-[#5ebe35] py-4 lg:table-cell hidden "
+                                                : " text-[#da4141] py-4  lg:table-cell hidden"
                                         }>{data.market_cap_change_percentage_24h}%</td>
                                         <td className={
                                             data.price_change_percentage_1h_in_currency > 0
-                                                ? " text-[#5ebe35] py-4 sm:table-cell hidden "
-                                                : " text-[#da4141] py-4  sm:table-cell hidden"
+                                                ? " text-[#5ebe35] py-4 lg:table-cell hidden "
+                                                : " text-[#da4141] py-4  lg:table-cell hidden"
                                         }>{Number(
                                             data.price_change_percentage_1h_in_currency
                                         ).toFixed(2)}</td>
                                         <td className={
                                             data.price_change_percentage_24h_in_currency > 0
-                                                ? " text-[#5ebe35] py-4 sm:table-cell hidden "
-                                                : " text-[#da4141] py-4  sm:table-cell hidden"
+                                                ? " text-[#5ebe35] py-4 lg:table-cell hidden "
+                                                : " text-[#da4141] py-4  lg:table-cell hidden"
                                         }>{Number(data.price_change_percentage_24h_in_currency
                                         ).toFixed(2)}</td>
                                         <td className={
                                             data.price_change_percentage_7d_in_currency > 0
-                                                ? " text-[#5ebe35] py-4 sm:table-cell hidden "
-                                                : " text-[#da4141] py-4  sm:table-cell hidden"
+                                                ? " text-[#5ebe35] py-4 lg:table-cell hidden "
+                                                : " text-[#da4141] py-4  lg:table-cell hidden"
                                         }> {Number(
                                             data.price_change_percentage_7d_in_currency
                                         ).toFixed(2)}</td>
