@@ -1,11 +1,11 @@
 import React, { useContext, useRef } from 'react'
 import Search from './Search'
-import { FaDribbble } from "react-icons/fa";
+import { FaDribbble, FaRecycle } from "react-icons/fa";
 import { AiOutlineDownCircle } from "react-icons/ai";
 import { CryptoContext } from '../data/CryptoContext';
 
 const Filter = () => {
-    const { setCurrency, setSortBy } = useContext(CryptoContext);
+    const { setCurrency, setSortBy, refreshFunction } = useContext(CryptoContext);
     const currencyRef = useRef(null);
 
     const handleSubmit = (e) => {
@@ -50,9 +50,18 @@ const Filter = () => {
                         </button>
                     </form>
 
+                     
+                        <button
+                            className="w-[2rem] h-auto hover:scale-110 transition-all transition-ease relative"
+                            onClick={refreshFunction}
+                        >
+                            <FaRecycle className='text-[#fcf64b] hover:text-[#66e9f7]' size={25} />
+                        </button>
+
                 </div>
 
-                <div className='flex mr-5 mt-3 text-white sm:mt-0'>
+                <div className='flex mr-4 mt-3 text-white sm:mt-0'>
+
                     <label className="relative flex justify-center items-center">
                         <span className="font-bold mr-2">Sort by: </span>
                         <select
@@ -60,8 +69,8 @@ const Filter = () => {
                             className="rounded bg-[#69695a] text-[#efefc9] 
          pl-2 pr-10 py-1 leading-4 capitalize focus:outline-[#ccb94c]
          "
-                       onClick={handleSort}
-                       >
+                            onClick={handleSort}
+                        >
                             <option value="market_cap_desc">market cap desc</option>
                             <option value="market_cap_asc">market cap asc</option>
                             <option value="volume_desc">volume desc</option>

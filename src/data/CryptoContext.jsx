@@ -38,6 +38,12 @@ export const CryptoProvider = ({ children }) => {
       console.log(error);
     }
   };
+  
+  //refresh
+  const refreshFunction = () => {
+    setPage(1);
+    setCoinSearch("");
+  };
 
   useLayoutEffect(() => {
     getCryptoData();
@@ -52,7 +58,8 @@ export const CryptoProvider = ({ children }) => {
       setSearchData,
       currency, setCurrency,
       sortBy, setSortBy,
-      page, setPage
+      page, setPage,
+      refreshFunction
     }}>
       {children}
     </CryptoContext.Provider>
