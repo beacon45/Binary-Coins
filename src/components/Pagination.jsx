@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { BiSolidCaretLeftSquare, BiSolidCaretRightSquare } from "react-icons/bi";
+import { CryptoContext } from '../data/CryptoContext';
 
 const Pagination = () => {
-    const [page, setPage] = useState(1);
+    const {page, setPage}=useContext(CryptoContext);
 
     const totalPage = 50;
     //next Page function
