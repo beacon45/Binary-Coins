@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { CryptoContext } from '../data/CryptoContext';
 import Pagination from './Pagination';
+import { Link } from "react-router-dom";
 
 const TableComponent = () => {
     let { cryptoData, currency } = useContext(CryptoContext);
@@ -38,15 +39,20 @@ const TableComponent = () => {
                                                 alt={data.name}
                                             />
                                             <span>
-                                                {data.symbol}
+                                                <Link to={`/${data.id}`} className="cursor-pointer">
+                                                    {data.symbol}
+                                                </Link>
                                             </span>
                                         </td>
-                                        <td className='py-4'>{data.name}</td>
-                                        <td className='py-4 sm:text-[#4c4cdd] text-[#5ebe35] '> 
-                                        {new Intl.NumberFormat("en-IN", {
-                                            style: "currency",
-                                            currency: currency,
-                                        }).format(data.current_price)}</td>
+                                        <td className='py-4'>
+                                            <Link to={`/${data.id}`} className="cursor-pointer">
+                                                {data.name}
+                                            </Link></td>
+                                        <td className='py-4 sm:text-[#4c4cdd] text-[#5ebe35] '>
+                                            {new Intl.NumberFormat("en-IN", {
+                                                style: "currency",
+                                                currency: currency,
+                                            }).format(data.current_price)}</td>
                                         <td className='py-4 md:table-cell hidden'>{data.total_volume}</td>
                                         <td className={
                                             data.market_cap_change_percentage_24h > 0
@@ -81,7 +87,7 @@ const TableComponent = () => {
                 ) : null}
             </div>
             <div className="flex justify-center items-center mt-4 capitalize h-[2rem]">
-                <Pagination/>
+                <Pagination />
             </div>
         </>
     );
