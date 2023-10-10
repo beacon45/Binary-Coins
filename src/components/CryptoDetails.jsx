@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect } from 'react'
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import { useNavigate, useParams } from 'react-router-dom'
 import { CryptoContext } from '../data/CryptoContext';
@@ -17,6 +17,33 @@ const CryptoDetails = () => {
   const close = () => {
     navigate("..")
   }
+
+  const HighLowIndicator = ({ currentPrice, high, low }) => {
+    const [green, setGreen] = useState();
+
+    useEffect(() => {
+      let total = high - low;
+      let greenZone = ((high - currentPrice) * 100) / total;
+      setGreen(Math.ceil(greenZone));
+    }, [currentPrice, high, low]);
+
+    return (
+      <>
+        <span
+          className="bg-[#e93636] h-1.5 rounded-l-lg w-[50%]"
+          style={{ width: `${100 - green}%` }}
+        >
+          &nbsp;
+        </span>
+        <span
+          className="bg-[#41ee41] h-1.5 rounded-r-lg w-[50%]"
+          style={{ width: `${green}%` }}
+        >
+          &nbsp;
+        </span>
+      </>
+    );
+  };
 
   return ReactDOM.createPortal(
     <>
@@ -107,7 +134,7 @@ const CryptoDetails = () => {
                     <span className="text-lg capitalize text-[#e5e597]">
                       fully diluted valuation
                     </span>
-                    <h2 className="text-[#fbfb45] font-semibold">
+                    <h2 className="text-[#e5e5ba] font-semibold">
                       {new Intl.NumberFormat("en-IN", {
                         style: "currency",
                         currency: currency,
@@ -119,7 +146,7 @@ const CryptoDetails = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col w-full mt-4 justify-between">
+                <div className="flex flex-col w-full mt-1 justify-between">
                   <span className="text-lg capitalize text-[#e5e597]">
                     total volume
                   </span>
@@ -132,7 +159,11 @@ const CryptoDetails = () => {
                   </h2>
                 </div>
                 <div className="flex w-full mt-4 justify-between">
-                  Indicator
+                <HighLowIndicator
+                  currentPrice={coinData.market_data.current_price[currency]}
+                  high={coinData.market_data.high_24h[currency]}
+                  low={coinData.market_data.low_24h[currency]}
+                />
                 </div>
 
                 <div className="flex w-full mt-4 justify-between">
