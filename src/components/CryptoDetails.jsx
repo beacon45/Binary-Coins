@@ -123,7 +123,7 @@ const CryptoDetails = () => {
                   <span className="text-lg capitalize text-[#e5e597]">
                     total volume
                   </span>
-                  <h2 className="text-[#fbfb45] font-semibold">
+                  <h2 className="text-[#6b96f2] font-semibold">
                     {new Intl.NumberFormat("en-IN", {
                       style: "currency",
                       currency: currency,
@@ -135,7 +135,36 @@ const CryptoDetails = () => {
                   Indicator
                 </div>
 
-                
+                <div className="flex w-full mt-4 justify-between">
+                  <div className="flex flex-col">
+                    <span className="text-lg capitalize text-[#8fb0e8]">
+                      Low 24H
+                    </span>
+                    <h2 className="text-[#f05a5a] font-semibold">
+                      {new Intl.NumberFormat("en-IN", {
+                        style: "currency",
+                        currency: currency,
+                        minimumFractionDigits: 0,
+                      }).format(coinData.market_data.low_24h[currency])}
+                    </h2>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-lg capitalize text-[#8fb0e8]">
+                      High 24H
+                    </span>
+                    <h2 className="text-[#85f34a] font-semibold ">
+                      {new Intl.NumberFormat("en-IN", {
+                        style: "currency",
+                        currency: currency,
+                        notation: "compact",
+                      }).format(
+                        coinData.market_data.high_24h[currency]
+                      )}
+                    </h2>
+                  </div>
+                </div>
+
+
               </div>
               <div className="flex flex-col w-[55%] h-full pr-2 bg-red-500">
                 right
