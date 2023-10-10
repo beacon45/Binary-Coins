@@ -89,6 +89,37 @@ const CryptoDetails = () => {
                     </h2>
                   </div>
                 </div>
+
+                <div className="flex w-full mt-4 justify-between">
+                  <div className="flex flex-col">
+                    <span className="text-lg capitalize text-[#e5e597]">
+                      Market Cap
+                    </span>
+                    <h2 className="text-[#f549f5] font-semibold">
+                      {new Intl.NumberFormat("en-IN", {
+                        style: "currency",
+                        currency: currency,
+                        minimumFractionDigits: 0,
+                      }).format(coinData.market_data.market_cap[currency])}
+                    </h2>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-lg capitalize text-[#e5e597]">
+                      fully diluted valuation
+                    </span>
+                    <h2 className="text-[#fbfb45] font-semibold">
+                      {new Intl.NumberFormat("en-IN", {
+                        style: "currency",
+                        currency: currency,
+                        notation: "compact",
+                      }).format(
+                        coinData.market_data.fully_diluted_valuation[currency]
+                      )}
+                    </h2>
+                  </div>
+                </div>
+
+                
               </div>
               <div className="flex flex-col w-[55%] h-full pr-2 bg-red-500">
                 right
