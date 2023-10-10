@@ -2,12 +2,13 @@ import React, { useContext, useLayoutEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { useNavigate, useParams } from 'react-router-dom'
 import { CryptoContext } from '../data/CryptoContext';
+import { AiOutlineCaretDown } from "react-icons/ai";
 
 const CryptoDetails = () => {
   let { coinId } = useParams();
   let navigate = useNavigate();
 
-  const { getCoinData, coinData } = useContext(CryptoContext);
+  const { getCoinData, coinData, currency } = useContext(CryptoContext);
 
   useLayoutEffect(() => {
     getCoinData(coinId)
@@ -38,13 +39,55 @@ const CryptoDetails = () => {
                   />
                   <h1 className="text-xl capitalize font-medium">{coinData.name}</h1>
                   <span
-                    className="text-sm
-        py-0.5 px-2.5 ml-2 bg-[#87877c] text-[#f1cb4f] bg-opacity-25
-        rounded uppercase
-        "
+                    className="text-sm py-0.5 px-2.5 ml-2 bg-[#87877c] text-[#f1cb4f] bg-opacity-25
+                                rounded uppercase"
                   >
                     {coinData.symbol}
                   </span>
+                </div>
+
+                <div className="flex w-full mt-6">
+                  <div className="flex flex-col w-full">
+                    <div className="flex justify-between">
+                      <span className=" text-lg capitalize text-[#ebebaa]">
+                        Price
+                      </span>
+                      <div
+                        className={`text-sm px-1 ml-2 font-medium flex items-center
+          rounded uppercase bg-opacity-25
+          ${coinData.market_data.price_change_percentage_24h > 0
+                            ? "bg-[#35d235] text-[#94d694]"
+                            : "bg-[#8e2626] text-[#e9a3a3]"
+                          }
+          `}
+                      >
+                        <span>
+                          {Number(
+                            coinData.market_data.price_change_percentage_24h
+                          ).toFixed(2)}
+                          %
+                        </span>
+                        <AiOutlineCaretDown
+                          className={`
+                      w-[1rem] ml-0.5
+                      ${coinData.market_data.price_change_percentage_24h > 0
+                              ? "fill-[#18e818] rotate-180"
+                              : "fill-[red]"
+                            }
+                      `}
+                        />
+
+
+                      </div>
+                    </div>
+                    <h2 className="text-lg text-[#fbfb45] font-semibold">
+                      {new Intl.NumberFormat("en-IN", {
+                        style: "currency",
+                        currency: currency,
+                        maximumSignificantDigits: 5,
+                      }).format(coinData.market_data.current_price[currency])}
+                    </h2>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col w-[55%] h-full pr-2 bg-red-500">
