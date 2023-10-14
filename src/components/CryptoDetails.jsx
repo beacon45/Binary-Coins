@@ -48,7 +48,7 @@ const CryptoDetails = () => {
   return ReactDOM.createPortal(
     <>
       <div className="fixed top-0 w-full h-full bg-[#979191] bg-opacity-30 first-letter:
-    backdrop-blur-sm flex items-center justify-center font-abc
+    backdrop-blur-sm flex items-center justify-center font-abc flex-wrap
     "
         onClick={close}
       >
@@ -73,7 +73,7 @@ const CryptoDetails = () => {
                   </span>
                 </div>
 
-                <div className="flex w-full mt-6">
+                <div className="flex w-full mt-4">
                   <div className="flex flex-col w-full">
                     <div className="flex justify-between">
                       <span className=" text-lg capitalize text-[#ebebaa]">
@@ -159,11 +159,11 @@ const CryptoDetails = () => {
                   </h2>
                 </div>
                 <div className="flex w-full mt-4 justify-between">
-                <HighLowIndicator
-                  currentPrice={coinData.market_data.current_price[currency]}
-                  high={coinData.market_data.high_24h[currency]}
-                  low={coinData.market_data.low_24h[currency]}
-                />
+                  <HighLowIndicator
+                    currentPrice={coinData.market_data.current_price[currency]}
+                    high={coinData.market_data.high_24h[currency]}
+                    low={coinData.market_data.low_24h[currency]}
+                  />
                 </div>
 
                 <div className="flex w-full mt-4 justify-between">
@@ -224,7 +224,75 @@ const CryptoDetails = () => {
                   </div>
                 </div>
 
+                <div className="flex w-full mt-1 justify-between">
+                  <div className="flex flex-col">
+                    <a
+                      target={"_blank"}
+                      rel="noreferrer"
+                      className="text-sm bg-[#5d5d4c] text-[#e7e778] px-1.5 py-0.5 my-1 rounded"
+                      href={coinData?.links?.homepage[0]}
+                    >
+                      {coinData?.links?.homepage[0].substring(0, 30)}
+                    </a>
+                    <a
+                      target={"_blank"}
+                      rel="noreferrer"
+                      className="text-sm bg-[#5d5d4c] text-[#e7e778] px-1.5 py-0.5 my-1 rounded"
+                      href={coinData?.links?.blockchain_site[0]}
+                    >
+                      {coinData?.links?.blockchain_site[0].substring(0, 30)}
+                    </a>
 
+                    {coinData?.links?.official_forum_url[0] && (
+                      <a
+                        target={"_blank"}
+                        rel="noreferrer"
+                        className="text-sm bg-[#5d5d4c] text-[#e7e778] px-1.5 py-0.5 my-1 rounded"
+                        href={coinData?.links?.official_forum_url[0]}
+                      >
+                        {coinData?.links?.official_forum_url[0].substring(0, 30)}
+                      </a>
+                    )}
+                  </div>
+
+                  <div className="flex flex-col items-center content-start ">
+                    <span className="text-base capitalize text-gray-100">
+                      sentiment
+                    </span>
+                    <div className="flex justify-between">
+                      <div
+                        className={`text-base px-1 ml-2 my-1 font-medium flex items-center
+          rounded uppercase bg-opacity-25 bg-[#77db77] text-[#ade0ad]
+          
+          `}
+                      >
+                        <span>
+                          {Number(coinData.sentiment_votes_up_percentage).toFixed(2)}%
+                        </span>
+                        <AiOutlineCaretDown
+                          className='w-[1rem] ml-0.5 rotate-180 fill-[#1ce71c]'/>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <div
+                        className={`text-base px-1 ml-2 my-1 font-medium flex items-center
+          rounded uppercase bg-opacity-25
+           bg-[#e95353] text-[#d28989]
+          `}
+                      >
+                        <span>
+                          {Number(coinData.sentiment_votes_down_percentage).toFixed(
+                            2
+                          )}
+                          %
+                        </span>
+                        <AiOutlineCaretDown className='w-[1rem] ml-0.5 fill-[#e92a2a]'/>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="flex flex-col w-[55%] h-full pr-2 bg-red-500">
                 right
