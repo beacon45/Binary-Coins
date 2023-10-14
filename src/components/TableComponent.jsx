@@ -2,6 +2,17 @@ import React, { useContext } from 'react';
 import { CryptoContext } from '../data/CryptoContext';
 import Pagination from './Pagination';
 import { Link } from "react-router-dom";
+import { AiOutlineStar } from "react-icons/ai";
+
+const SaveBtn = ()=>{
+    return(
+        <>
+            <button className="outline-0 border-0 bg-none cursor-pointer">
+                <AiOutlineStar className=' w-[1.5rem] ml-1 fill-[yellow] hover:fill-[#11110b]'/>
+            </button>
+        </>
+    );
+}
 
 const TableComponent = () => {
     let { cryptoData, currency } = useContext(CryptoContext);
@@ -33,6 +44,7 @@ const TableComponent = () => {
                                          hover:bg-[#dede6e] hover:text-black last:border-b-0"
                                     >
                                         <td className="py-4 flex items-center uppercase">
+                                            <SaveBtn/>
                                             <img
                                                 className="w-[1.6rem] h-[1.6rem] mx-1.5"
                                                 src={data.image}
