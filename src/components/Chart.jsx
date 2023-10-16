@@ -105,20 +105,20 @@ const Chart = ({ id }) => {
 
                     <button className={`text-base py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize 
                     ${days===7
-                            ? "bg-[#eff840] text-[#edd8a1]"
-                            : "bg-[#8b876a] text-[#edeb83]"
+                            ? "bg-[#6dc2e0] text-[#a5bef2]"
+                            : "bg-[#8b876a] text-[#9494ef]"
                         }`}
                     onClick={()=>{setDays(7)}}>7d</button>
                     <button className={`text-base py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize 
                     ${days===14
-                            ? "bg-[#eff840] text-[#edd8a1]"
-                            : "bg-[#8b876a] text-[#edeb83]"
+                            ? "bg-[#6dc2e0] text-[#a5bef2]"
+                            : "bg-[#8b876a] text-[#9494ef]"
                         }`}
                     onClick={()=>{setDays(14)}}>14d</button>
                     <button className={`text-base py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize 
                     ${days===30
-                            ? "bg-[#eff840] text-[#edd8a1]"
-                            : "bg-[#8b876a] text-[#edeb83]"
+                            ? "bg-[#6dc2e0] text-[#a5bef2]"
+                            : "bg-[#8b876a] text-[#9494ef]"
                         }`}
                     onClick={()=>{setDays(30)}}>30d</button>
                 </div>

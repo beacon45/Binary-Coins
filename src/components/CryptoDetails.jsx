@@ -271,7 +271,7 @@ const CryptoDetails = () => {
                           {Number(coinData.sentiment_votes_up_percentage).toFixed(2)}%
                         </span>
                         <AiOutlineCaretDown
-                          className='w-[1rem] ml-0.5 rotate-180 fill-[#1ce71c]'/>
+                          className='w-[1rem] ml-0.5 rotate-180 fill-[#1ce71c]' />
                       </div>
                     </div>
 
@@ -288,15 +288,38 @@ const CryptoDetails = () => {
                           )}
                           %
                         </span>
-                        <AiOutlineCaretDown className='w-[1rem] ml-0.5 fill-[#e92a2a]'/>
-                        
+                        <AiOutlineCaretDown className='w-[1rem] ml-0.5 fill-[#e92a2a]' />
+
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="flex flex-col w-[55%] h-full pr-2 text-[#eaea66]">
-                <Chart id={coinData.id}/>
+                <Chart id={coinData.id} />
+
+                <div className="flex flex-col mt-4">
+                  <h3 className="text-[#fff476] py-1">
+                    <span className="text-[#eded91] capitalize mr-1">
+                      market cap rank:{" "}
+                    </span>{" "}
+                    {coinData.market_cap_rank}{" "}
+                  </h3>
+
+                  <h3 className="text-[#fff476] py-1">
+                    <span className="text-[#eded91] capitalize mr-1">
+                      coinGecko rank:{" "}
+                    </span>{" "}
+                    {coinData.coingecko_rank}{" "}
+                  </h3>
+
+                  <h3 className="text-[#fff476] py-1">
+                    <span className="text-[#eded91] capitalize mr-1">
+                      coinGecko score:{" "}
+                    </span>{" "}
+                    {coinData.coingecko_score}{" "}
+                  </h3>
+                </div>
               </div>
             </div>
             : null
