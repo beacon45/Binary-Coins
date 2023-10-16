@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { useNavigate, useParams } from 'react-router-dom'
 import { CryptoContext } from '../data/CryptoContext';
 import { AiOutlineCaretDown } from "react-icons/ai";
+import Chart from './Chart';
 
 const CryptoDetails = () => {
   let { coinId } = useParams();
@@ -294,8 +295,8 @@ const CryptoDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col w-[55%] h-full pr-2 bg-red-500">
-                right
+              <div className="flex flex-col w-[55%] h-full pr-2 text-[#eaea66]">
+                <Chart id={coinData.id}/>
               </div>
             </div>
             : null
