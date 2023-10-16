@@ -300,21 +300,21 @@ const CryptoDetails = () => {
 
                 <div className="flex flex-col mt-4">
                   <h3 className="text-[#fff476] py-1">
-                    <span className="text-[#eded91] capitalize mr-1">
+                    <span className="text-[#e6e6ab] capitalize mr-1">
                       market cap rank:{" "}
                     </span>{" "}
                     {coinData.market_cap_rank}{" "}
                   </h3>
 
                   <h3 className="text-[#fff476] py-1">
-                    <span className="text-[#eded91] capitalize mr-1">
+                    <span className="text-[#e6e6ab] capitalize mr-1">
                       coinGecko rank:{" "}
                     </span>{" "}
                     {coinData.coingecko_rank}{" "}
                   </h3>
 
                   <h3 className="text-[#fff476] py-1">
-                    <span className="text-[#eded91] capitalize mr-1">
+                    <span className="text-[#e6e6ab] capitalize mr-1">
                       coinGecko score:{" "}
                     </span>{" "}
                     {coinData.coingecko_score}{" "}
