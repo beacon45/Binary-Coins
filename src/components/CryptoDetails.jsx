@@ -51,16 +51,16 @@ const CryptoDetails = () => {
   return ReactDOM.createPortal(
     <>
       <div className="fixed top-0 w-full h-full bg-[#979191] bg-opacity-30 first-letter:
-    backdrop-blur-sm flex items-center justify-center font-abc flex-wrap
+    backdrop-blur-sm flex items-center justify-center font-abc
     "
         onClick={close}
       >
-        <div className="w-[65%] h-[75%] bg-[#4f4f3f] bg-opacity-75 rounded-lg text-white relative"
+        <div className="w-[65%] h-[75%] sm:flex bg-[#4f4f3f] bg-opacity-75 rounded-lg text-white relative"
           onClick={(e) => { e.stopPropagation() }}
         >
           {coinData ?
             <div className="flex items-center justify-between h-full w-full p-4">
-              <div className="flex flex-col w-[45%] h-full pr-2">
+              <div className="l1 flex flex-col w-[45%] h-full pr-2">
                 <div className="flex w-full items-center">
                   <img
                     className="w-[3rem] h-[3rem] mx-1.5"
@@ -297,7 +297,7 @@ const CryptoDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col w-[55%] h-full pr-2 text-[#eaea66]">
+              <div className="l2 flex flex-col w-[55%] h-full pr-2 text-[#eaea66]">
                 <Chart id={coinData.id} />
 
                 <div className="flex flex-col mt-4">
@@ -322,45 +322,45 @@ const CryptoDetails = () => {
                     {coinData.coingecko_score}{" "}
                   </h3>
                 </div>
-              </div>
 
-              <div className="absolute bottom-8 right-8 flex items-center">
-                {coinData.links.repos_url.github[0] &&
-                  (<a
-                    className="text-lg px-1"
-                    target={"_blank"}
-                     rel="noreferrer"
-                    href={coinData.links.repos_url.github[0]}>
-                    <FaGithubAlt className=' w-[1rem] h-[1rem] fill-[#d3a2f0] '/>
-                  </a>)}
+                <div className="absolute bottom-8 right-8 flex items-center">
+                  {coinData.links.repos_url.github[0] &&
+                    (<a
+                      className="text-lg px-1"
+                      target={"_blank"}
+                      rel="noreferrer"
+                      href={coinData.links.repos_url.github[0]}>
+                      <FaGithubAlt className=' w-[1rem] h-[1rem] fill-[#d3a2f0] ' />
+                    </a>)}
 
-                {coinData.links.twitter_screen_name && (
-                  <a
-                    className="text-lg px-1"
-                    target={"_blank"}
-                     rel="noreferrer"
-                    href={`https://twitter.com/${coinData.links.twitter_screen_name}`}>
-                    <FaXTwitter className=' w-[1rem] h-[1rem] fill-[#e7e7e3]'/>
-                  </a>)}
+                  {coinData.links.twitter_screen_name && (
+                    <a
+                      className="text-lg px-1"
+                      target={"_blank"}
+                      rel="noreferrer"
+                      href={`https://twitter.com/${coinData.links.twitter_screen_name}`}>
+                      <FaXTwitter className=' w-[1rem] h-[1rem] fill-[#e7e7e3]' />
+                    </a>)}
 
-                {coinData.links.subreddit_url && (
-                  <a
-                    className="text-lg px-1"
-                    target={"_blank"}
-                     rel="noreferrer"
-                    href={coinData.links.subreddit_url}>
-                    <FaRedditAlien className=' w-[1rem] h-[1rem] fill-[#e76161] '/>
-                  </a>)}
+                  {coinData.links.subreddit_url && (
+                    <a
+                      className="text-lg px-1"
+                      target={"_blank"}
+                      rel="noreferrer"
+                      href={coinData.links.subreddit_url}>
+                      <FaRedditAlien className=' w-[1rem] h-[1rem] fill-[#e76161] ' />
+                    </a>)}
 
-                {coinData.links.facebook_username && (
-                  <a
-                    className="text-lg px-1"
-                    target={"_blank"}
-                     rel="noreferrer"
-                    href={`https://facebook.com/${coinData.links.facebook_username}`}>
-                    <FaFacebook className=' w-[1rem] h-[1rem] fill-[#5c5cea]'/>
-                  </a>)}
+                  {coinData.links.facebook_username && (
+                    <a
+                      className="text-lg px-1"
+                      target={"_blank"}
+                      rel="noreferrer"
+                      href={`https://facebook.com/${coinData.links.facebook_username}`}>
+                      <FaFacebook className=' w-[1rem] h-[1rem] fill-[#5c5cea]' />
+                    </a>)}
 
+                </div>
               </div>
             </div>
             : null
