@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import { useNavigate, useParams } from 'react-router-dom'
 import { CryptoContext } from '../data/CryptoContext';
 import { AiOutlineCaretDown } from "react-icons/ai";
+import { FaGithubAlt, FaFacebook } from "react-icons/fa";
+import { FaRedditAlien, FaXTwitter } from "react-icons/fa6";
 import Chart from './Chart';
 
 const CryptoDetails = () => {
@@ -320,6 +322,45 @@ const CryptoDetails = () => {
                     {coinData.coingecko_score}{" "}
                   </h3>
                 </div>
+              </div>
+
+              <div className="absolute bottom-8 right-8 flex items-center">
+                {coinData.links.repos_url.github[0] &&
+                  (<a
+                    className="text-lg px-1"
+                    target={"_blank"}
+                     rel="noreferrer"
+                    href={coinData.links.repos_url.github[0]}>
+                    <FaGithubAlt className=' w-[1rem] h-[1rem] fill-[#d3a2f0] '/>
+                  </a>)}
+
+                {coinData.links.twitter_screen_name && (
+                  <a
+                    className="text-lg px-1"
+                    target={"_blank"}
+                     rel="noreferrer"
+                    href={`https://twitter.com/${coinData.links.twitter_screen_name}`}>
+                    <FaXTwitter className=' w-[1rem] h-[1rem] fill-[#e7e7e3]'/>
+                  </a>)}
+
+                {coinData.links.subreddit_url && (
+                  <a
+                    className="text-lg px-1"
+                    target={"_blank"}
+                     rel="noreferrer"
+                    href={coinData.links.subreddit_url}>
+                    <FaRedditAlien className=' w-[1rem] h-[1rem] fill-[#e76161] '/>
+                  </a>)}
+
+                {coinData.links.facebook_username && (
+                  <a
+                    className="text-lg px-1"
+                    target={"_blank"}
+                     rel="noreferrer"
+                    href={`https://facebook.com/${coinData.links.facebook_username}`}>
+                    <FaFacebook className=' w-[1rem] h-[1rem] fill-[#5c5cea]'/>
+                  </a>)}
+
               </div>
             </div>
             : null
