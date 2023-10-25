@@ -59,7 +59,7 @@ const CryptoDetails = () => {
           onClick={(e) => { e.stopPropagation() }}
         >
           {coinData ?
-            <div className="flex items-center justify-between h-full w-full p-4">
+            <div className=" flex sm:flex items-center justify-between h-full w-full p-4">
               <div className="l1 flex flex-col w-[45%] h-full pr-2">
                 <div className="flex w-full items-center">
                   <img
@@ -297,7 +297,7 @@ const CryptoDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="l2 flex flex-col w-[55%] h-full pr-2 text-[#eaea66]">
+              <div className="l2 flex flex-col w-[55%] h-full pr-2 text-[#eaea66] m-2">
                 <Chart id={coinData.id} />
 
                 <div className="flex flex-col mt-4">
