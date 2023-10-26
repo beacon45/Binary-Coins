@@ -4,11 +4,11 @@ import Pagination from './Pagination';
 import { Link } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 
-const SaveBtn = ()=>{
+const SaveBtn = ({data})=>{
     return(
         <>
             <button className="outline-0 border-0 bg-none cursor-pointer">
-                <AiOutlineStar className=' w-[1.5rem] ml-1 fill-[yellow] hover:fill-[#11110b]'/>
+                <AiOutlineStar className=' w-[1.5rem] ml-1 fill-[#f6d208] hover:fill-[#11110b]'/>
             </button>
         </>
     );
@@ -41,10 +41,10 @@ const TableComponent = () => {
                                     <tr
                                         key={data.id}
                                         className="text-center text-white border-b font-semibold border-2 border-[#ccb94c]
-                                         hover:bg-[#dede6e] hover:text-black last:border-b-0"
+                                         hover:bg-[#e8e893] hover:text-black last:border-b-0"
                                     >
                                         <td className="py-4 flex items-center uppercase">
-                                            <SaveBtn/>
+                                            <SaveBtn data={data}/>
                                             <img
                                                 className="w-[1.6rem] h-[1.6rem] mx-1.5"
                                                 src={data.image}

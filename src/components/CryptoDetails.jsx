@@ -51,16 +51,17 @@ const CryptoDetails = () => {
   return ReactDOM.createPortal(
     <>
       <div className="fixed top-0 w-full h-full bg-[#979191] bg-opacity-30 first-letter:
-    backdrop-blur-sm flex items-center justify-center font-abc
+    backdrop-blur-sm flex items-center justify-center font-abc 
     "
         onClick={close}
       >
-        <div className="w-[65%] h-[75%] sm:flex bg-[#4f4f3f] bg-opacity-75 rounded-lg text-white relative"
+        <div className="w-[98%] h-[98%] sm:w-[65%] sm:h-[75%] flex bg-[#4f4f3f] bg-opacity-75 rounded-lg text-white relative"
           onClick={(e) => { e.stopPropagation() }}
         >
           {coinData ?
-            <div className=" flex sm:flex items-center justify-between h-full w-full p-4">
-              <div className="l1 flex flex-col w-[45%] h-full pr-2">
+            <div className=" flex flex-col sm:flex sm:flex-row items-center justify-between h-full w-full p-4 sm:p-4 
+           scrollbar-thin scrollbar-thumb-[#e8d8a1] scrollbar-track-[#6c664d] overflow-x-hidden sm:scrollbar-none">
+              <div className="flex flex-col w-[100%] sm:w-[45%] h-full pr-2 ml-0 sm:ml-2">
                 <div className="flex w-full items-center">
                   <img
                     className="w-[3rem] h-[3rem] mx-1.5"
@@ -169,7 +170,7 @@ const CryptoDetails = () => {
                   />
                 </div>
 
-                <div className="flex w-full mt-4 justify-between">
+                <div className="flex sm:flex sm:flex-row w-full mt-4 justify-between">
                   <div className="flex flex-col">
                     <span className="text-lg capitalize text-[#8fb0e8]">
                       Low 24H
@@ -297,10 +298,11 @@ const CryptoDetails = () => {
                   </div>
                 </div>
               </div>
-              <div className="l2 flex flex-col w-[55%] h-full pr-2 text-[#eaea66] m-2">
+              <div className="flex flex-col w-[100%] sm:w-[55%] h-full pr-2 text-[#eaea66] m-2">
+                
                 <Chart id={coinData.id} />
 
-                <div className="flex flex-col mt-4">
+                <div className="flex flex-col mt-6">
                   <h3 className="text-[#fff476] py-1">
                     <span className="text-[#e6e6ab] capitalize mr-1">
                       market cap rank:{" "}

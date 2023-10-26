@@ -82,7 +82,7 @@ const Chart = ({ id }) => {
 
     return (
         <>
-            <div className="w-full h-[60%]">
+            <div className="w-full h-[60%] m-2">
                 <ChartComponent data={chartData} currency={currency} type={type} />
                 <div className="flex">
                     <button className={`text-base py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize 
