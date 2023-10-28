@@ -6,7 +6,7 @@ import PerPage from './PerPage';
 const Pagination = () => {
     const { page, setPage, perPage, cryptoData } = useContext(CryptoContext);
 
-    const totalPage = 50;
+    const totalPage = 100;
     //next Page function
     const next = () => {
         if (page === totalPage) {
