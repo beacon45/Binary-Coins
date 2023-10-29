@@ -19,6 +19,15 @@ export const SaveProvider = ({ children }) => {
 
     }
 
+    const removeCoin=(coinId)=>{
+        let oldCoins= JSON.parse(localStorage.getItem("coins"))
+
+        let newCoin= oldCoins.filter((coin)=> coin !== coinId)
+        setAllCoins(newCoin);
+        localStorage.setItem("coins",JSON.stringify(newCoin));
+
+    }
+
 
 
     useLayoutEffect(() => {
@@ -40,7 +49,8 @@ export const SaveProvider = ({ children }) => {
         <SaveContext.Provider
             value={{
                 saveCoin,
-                allCoins
+                allCoins,
+                removeCoin
             }}
         >
             {children}

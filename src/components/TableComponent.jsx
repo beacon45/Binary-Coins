@@ -6,19 +6,26 @@ import { Link } from "react-router-dom";
 import { BsFillSunFill } from "react-icons/bs";
 import { SaveContext } from '../data/SaveContext';
 
-const SaveBtn = ({data})=>{
-    const {saveCoin, allCoins}=useContext(SaveContext);
-    const handleClick=(e)=>{
+const SaveBtn = ({ data }) => {
+    const { saveCoin, allCoins, removeCoin } = useContext(SaveContext);
+    const handleClick = (e) => {
         e.preventDefault();
         saveCoin(data.id)
+
+        if (allCoins.includes(data.id)) {
+            removeCoin(data.id);
+        } else {
+            saveCoin(data.id);
+        }
     }
-    return(
+    return (
         <>
             <button className="outline-0 border-0 bg-none cursor-pointer"
-            onClick={(e)=>handleClick(e)}>
-                <BsFillSunFill className={` w-[1.5rem] ml-1
-                ${allCoins.includes(data.id) ? "fill-[#e2cb19]" : "fill-[#a6a67c]"}
-                hover:fill-[#e8c011]`}/>
+                onClick={(e) => handleClick(e)}>
+                <BsFillSunFill className={`w-[1.5rem] ml-1.5 ${allCoins && allCoins.includes(data.id)
+                        ? "fill-[#f1f50a]"
+                        : "fill-[#a2a180]"
+                    } hover:fill-[#b39308]`} />
             </button>
         </>
     );
@@ -54,7 +61,7 @@ const TableComponent = () => {
                                          hover:bg-[#e8e893] hover:text-black last:border-b-0"
                                     >
                                         <td className="py-4 flex items-center uppercase">
-                                            <SaveBtn data={data}/>
+                                            <SaveBtn data={data} />
                                             <img
                                                 className="w-[1.6rem] h-[1.6rem] mx-1.5"
                                                 src={data.image}
