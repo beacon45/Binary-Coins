@@ -9,7 +9,7 @@ const TrendingCoin = ({ data }) => {
     };
     return (
         <>
-            <div className=" w-full sm:w-[40%] bg-[#5f5f5a] mb-12
+            <div key={data} className=" w-full sm:w-[40%] bg-[#5f5f5a] mb-12
     last:mb-0 rounded-lg p-4 relative cursor-pointer
     hover:bg-[#8e856e] hover:bg-opacity-40 text-[#e8e5c4] flex flex-col mx-5
     "
