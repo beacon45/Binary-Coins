@@ -3,33 +3,6 @@ import { CryptoContext } from '../data/CryptoContext';
 import Pagination from './Pagination';
 import { Link } from "react-router-dom";
 //import { AiOutlineStar } from "react-icons/ai";
-import { BsFillSunFill } from "react-icons/bs";
-import { SaveContext } from '../data/SaveContext';
-
-const SaveBtn = ({ data }) => {
-    const { saveCoin, allCoins, removeCoin } = useContext(SaveContext);
-    const handleClick = (e) => {
-        e.preventDefault();
-        saveCoin(data.id)
-
-        if (allCoins.includes(data.id)) {
-            removeCoin(data.id);
-        } else {
-            saveCoin(data.id);
-        }
-    }
-    return (
-        <>
-            <button className="outline-0 border-0 bg-none cursor-pointer"
-                onClick={(e) => handleClick(e)}>
-                <BsFillSunFill className={`w-[1.5rem] ml-1.5 ${allCoins && allCoins.includes(data.id)
-                        ? "fill-[#f1f50a]"
-                        : "fill-[#a2a180]"
-                    } hover:fill-[#b39308]`} />
-            </button>
-        </>
-    );
-}
 
 const TableComponent = () => {
     let { cryptoData, currency } = useContext(CryptoContext);
@@ -61,7 +34,7 @@ const TableComponent = () => {
                                          hover:bg-[#e8e893] hover:text-black last:border-b-0"
                                     >
                                         <td className="py-4 flex items-center uppercase">
-                                            <SaveBtn data={data} />
+                                            
                                             <img
                                                 className="w-[1.6rem] h-[1.6rem] mx-1.5"
                                                 src={data.image}

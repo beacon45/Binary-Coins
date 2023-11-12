@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home';
 import Crypto from './pages/Crypto';
 import Trending from './pages/Trending';
-import Favourite from './pages/Favourite';
+import About from './pages/About';
 import CryptoDetails from './components/CryptoDetails';
 
 const router = createBrowserRouter([
@@ -39,8 +39,8 @@ const router = createBrowserRouter([
         ]
       },
       {
-        path:"/favourites",
-        element: <Favourite />,
+        path:"/About",
+        element: <About />,
         children: [
           {
             path:":coinId",

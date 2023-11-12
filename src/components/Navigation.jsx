@@ -40,7 +40,7 @@ ${isActive
       </NavLink>
 
       <NavLink
-        to="/favourites"
+        to="/About"
         className={({ isActive }) => {
           return `w-full text-base text-center font-abc m-2.5
 
@@ -51,7 +51,7 @@ ${isActive
     border-0 cursor-pointer rounded capitalize font-semibold`;
         }}
       >
-        Favourites
+        About
       </NavLink>
     </nav>
   );
