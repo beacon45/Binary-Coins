@@ -35,7 +35,7 @@ const About = () => {
               </div>
               <div className=' flex flex-col items-center justify-center'>
                 <h1 className="text-4xl font-bold mb-4 text-[#6969e3]">Let's Connect</h1>
-                <p className="text-base text-center mb-4 text-[#f3f36f]">I'd love to hear from you! Feel free to reach out and connect with us.</p>
+                <p className="text-base text-center mb-4 text-[#f3766f]">I'd love to hear from you! Feel free to reach out and connect with us.</p>
                 <div className="flex space-x-4">
                 <a href="#" className="text-[#e07eea] hover:text-[#f3f36f]">
                     <BsInstagram className="fab fa-facebook fa-2x" />
@@ -43,10 +43,10 @@ const About = () => {
                   <a href="#" className="text-[#00c8ff] hover:text-[#f3f36f]">
                     <BsFacebook className="fab fa-facebook fa-2x" />
                   </a>
-                  <a href="#" className="text-[#ff2f00] hover:text-[#f3f36f]">
+                  <a href="https://github.com/beacon45" className="text-[#ff2f00] hover:text-[#f3f36f]">
                     <BsGithub className="fab fa-facebook fa-2x" />
                   </a>
-                  <a href="#" className="text-[#00c8ff] hover:text-[#f3f36f]">
+                  <a href="https://www.linkedin.com/in/souvik-banik-6565b2246/" className="text-[#00c8ff] hover:text-[#f3f36f]">
                     <BsLinkedin className="fab fa-facebook fa-2x" />
                   </a>
                   <a href="#" className="text-[#f9f9f9] hover:text-[#f3f36f]">
